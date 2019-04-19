@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Redirecionando url digitada direto na barra de endereço do browser
+Route::get('{path}', 'HomeController@index')->where('path', '([A-z\d-\/_.]+)?');

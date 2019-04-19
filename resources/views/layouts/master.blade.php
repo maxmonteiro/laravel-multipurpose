@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </router-link>
             </li>
-            
+
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-cog"></i>
@@ -150,7 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         Anything you want
       </div>
       <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+      <strong>Copyright &copy; 2019 <a href="https://www.linkedin.com/in/maximohp">Máximo Henrique</a>.</strong> All rights reserved.
     </footer>
   </div>
   <!-- ./wrapper -->
