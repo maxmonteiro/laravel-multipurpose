@@ -61,7 +61,48 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">
+              <div class="form-group">
+                  <input type="text" name="name" class="form-control" placeholder="Name"
+                  :class="{ 'is-invalid': form.errors.has('name') }"
+                  v-model="form.name"
+                  >
+                  <has-error :form="form" field="name"></has-error>
+              </div>
+              <div class="form-group">
+                  <input type="text" name="email" class="form-control" placeholder="Email Address"
+                  :class="{ 'is-invalid': form.errors.has('email') }"
+                  v-model="form.email"
+                  >
+                  <has-error :form="form" field="email"></has-error>
+              </div>
+              <div class="form-group">
+                  <textarea type="text" name="bio" class="form-control" placeholder="Short bio for user (optional)"
+                  :class="{ 'is-invalid': form.errors.has('bio') }"
+                  v-model="form.bio"
+                  ></textarea>
+                  <has-error :form="form" field="bio"></has-error>
+              </div>
+              <div class="form-group">
+                  <select type="text" name="type" class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('type') }"
+                  v-model="form.type"
+                  >
+                    <option value="">Select User Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">Standard User</option>
+                    <option value="author">Author</option>
+                  </select>
+                  <has-error :form="form" field="type"></has-error>
+              </div>
+              <div class="form-group">
+                  <input type="password" name="password" class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('password') }"
+                  v-model="form.password"
+                  >
+                  <has-error :form="form" field="password"></has-error>
+              </div>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Create</button>
@@ -77,7 +118,12 @@ export default {
   data() {
     return {
       form: new Form({
-
+          name: '',
+          email: '',
+          password: '',
+          type: '',
+          bio: '',
+          photo: '',
       })
     };
   },
