@@ -74,6 +74,13 @@
 
 <script>
 export default {
+  data() {
+    return {
+      form: new Form({
+
+      })
+    };
+  },
   mounted() {
     console.log("Component mounted.");
   }
