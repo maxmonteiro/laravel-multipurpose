@@ -1998,7 +1998,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     createUser: function createUser() {
       // sending via vForm
-      this.form.post('api/user');
+      this.form.post('api/user').then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.error(err);
+      });
     }
   }
 });
@@ -38658,7 +38662,11 @@ var render = function() {
                           class: {
                             "is-invalid": _vm.form.errors.has("password")
                           },
-                          attrs: { type: "password", name: "password" },
+                          attrs: {
+                            type: "password",
+                            name: "password",
+                            placeholder: "Password"
+                          },
                           domProps: { value: _vm.form.password },
                           on: {
                             input: function($event) {
@@ -38803,7 +38811,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
         [_vm._v("Create")]
       )
     ])

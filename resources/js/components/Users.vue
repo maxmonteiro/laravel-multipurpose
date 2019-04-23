@@ -97,7 +97,7 @@
                     <has-error :form="form" field="type"></has-error>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control"
+                    <input type="password" name="password" class="form-control" placeholder="Password"
                     :class="{ 'is-invalid': form.errors.has('password') }"
                     v-model="form.password"
                     >
@@ -106,7 +106,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Create</button>
+              <button type="submit" class="btn btn-primary">Create</button>
             </div>
           </form>
         </div>
@@ -135,7 +135,12 @@ export default {
   methods: {
     createUser() {
       // sending via vForm
-      this.form.post('api/user');
+      this.form.post('api/user')
+      .then((res) => {
+          console.log(res);
+      }).catch((err) => {
+          console.error(err)
+      });
     }
   }
 };
