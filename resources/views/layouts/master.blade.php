@@ -136,6 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="content">
         <div class="container-fluid">
           <ROUTER-VIEW></ROUTER-VIEW>
+          <vue-progress-bar></vue-progress-bar>
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content -->

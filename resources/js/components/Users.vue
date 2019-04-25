@@ -144,13 +144,18 @@ export default {
         });
     },
     createUser() {
-      // sending via vForm
-      this.form.post('api/user')
-      .then((res) => {
-          console.log(res);
-      }).catch((err) => {
-          console.error(err)
-      });
+        // starting progress bar
+        this.$Progress.start();
+        // sending via vForm
+        this.form.post('api/user')
+        .then((res) => {
+            // finishing progress bar on create
+            this.$Progress.finish();
+        }).catch((err) => {
+            console.error(err);
+            // finishing progress bar on error
+            this.$Progress.fail();
+        });
     }
   }
 };
