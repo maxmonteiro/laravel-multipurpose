@@ -15,6 +15,7 @@ Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 
 import VueRouter from 'vue-router'
+import moment from 'moment'
 
 Vue.use(VueRouter)
 
@@ -29,9 +30,14 @@ const router = new VueRouter({
     routes
 })
 
-// Filter functions
+/** Filter functions */
+// Uppercase first letter
 Vue.filter('upText', (text) => {
     return text.charAt(0).toUpperCase() + text.slice(1)
+})
+// Format date
+Vue.filter('myDate', (date) => {
+    return moment(date).format('DD/MM/YYYY')
 })
 
 /**
