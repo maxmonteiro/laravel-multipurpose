@@ -172,6 +172,7 @@ return [
         'text'                  => 'texto',
         'time'                  => 'hora',
         'title'                 => 'título',
+        'type'                  => 'tipo',
         'username'              => 'usuário',
         'year'                  => 'ano',
         'email'                 => 'e-mail',

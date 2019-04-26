@@ -146,15 +146,31 @@ export default {
     createUser() {
         // starting progress bar
         this.$Progress.start();
+        // Swal: definindo notificação toast
+        const Toast = swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
         // sending via vForm
         this.form.post('api/user')
         .then((res) => {
             // finishing progress bar on create
             this.$Progress.finish();
+            // Swal: disparando toast
+            Toast.fire({
+                type: 'success',
+                title: 'Created in successfully'
+            })
         }).catch((err) => {
             console.error(err);
             // finishing progress bar on error
             this.$Progress.fail();
+            Toast.fire({
+                type: 'error',
+                title: 'Cannot be created'
+            })
         });
     }
   }
