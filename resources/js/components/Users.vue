@@ -155,7 +155,10 @@ export default {
             Toast.fire({
                 type: 'success',
                 title: 'Created in successfully'
-            })
+            });
+            // Fechando modal
+            $('#addNew').modal('hide');
+            this.loadUsers();
         }).catch((err) => {
             console.error(err);
             // finishing progress bar on error
@@ -163,7 +166,7 @@ export default {
             Toast.fire({
                 type: 'error',
                 title: 'Cannot be created'
-            })
+            });
         });
     }
   }

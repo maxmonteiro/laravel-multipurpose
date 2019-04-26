@@ -2020,7 +2020,11 @@ __webpack_require__.r(__webpack_exports__);
         Toast.fire({
           type: 'success',
           title: 'Created in successfully'
-        });
+        }); // Fechando modal
+
+        $('#addNew').modal('hide');
+
+        _this2.loadUsers();
       })["catch"](function (err) {
         console.error(err); // finishing progress bar on error
 
