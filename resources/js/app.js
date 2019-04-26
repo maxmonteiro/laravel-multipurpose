@@ -28,6 +28,14 @@ Vue.use(VueProgressBar, {
 
 import swal from 'sweetalert2'
 window.swal = swal
+// Swal: definindo notificação toast
+const Toast = swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+});
+window.Toast = Toast
 
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue').default },

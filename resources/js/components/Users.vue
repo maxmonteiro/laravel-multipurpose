@@ -146,13 +146,6 @@ export default {
     createUser() {
         // starting progress bar
         this.$Progress.start();
-        // Swal: definindo notificação toast
-        const Toast = swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
         // sending via vForm
         this.form.post('api/user')
         .then((res) => {

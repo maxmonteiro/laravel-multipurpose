@@ -2010,14 +2010,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       // starting progress bar
-      this.$Progress.start(); // Swal: definindo notificação toast
-
-      var Toast = swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000
-      }); // sending via vForm
+      this.$Progress.start(); // sending via vForm
 
       this.form.post('api/user').then(function (res) {
         // finishing progress bar on create
@@ -74104,7 +74097,15 @@ Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_3___default.a, {
   height: '3px'
 });
 
-window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a;
+window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a; // Swal: definindo notificação toast
+
+var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+window.Toast = Toast;
 var routes = [{
   path: '/dashboard',
   component: __webpack_require__(/*! ./components/Dashboard.vue */ "./resources/js/components/Dashboard.vue")["default"]
