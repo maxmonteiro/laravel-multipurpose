@@ -1979,6 +1979,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2034,6 +2035,21 @@ __webpack_require__.r(__webpack_exports__);
           type: 'error',
           title: 'Cannot be created'
         });
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+        if (result.value) {
+          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        }
       });
     }
   }
@@ -59174,6 +59190,9 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("a", { attrs: { href: "" } }, [
+        _vm._v(
+          '\n                    @click.prevent="deleteUser(user.id)"\n                    '
+        ),
         _c("i", { staticClass: "fa fa-trash red" })
       ])
     ])
@@ -74101,7 +74120,7 @@ Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_3___default.a, {
   height: '3px'
 });
 
-window.swal = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a; // Swal: definindo notificação toast
+window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a; // Swal: definindo notificação toast
 
 var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.mixin({
   toast: true,

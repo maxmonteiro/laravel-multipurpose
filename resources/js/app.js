@@ -26,10 +26,10 @@ Vue.use(VueProgressBar, {
     height: '3px'
 })
 
-import swal from 'sweetalert2'
-window.swal = swal
+import Swal from 'sweetalert2'
+window.Swal = Swal
 // Swal: definindo notificação toast
-const Toast = swal.mixin({
+const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,

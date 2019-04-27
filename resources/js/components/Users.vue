@@ -34,6 +34,7 @@
                       <i class="fa fa-edit blue"></i>
                     </a>
                     <a href>
+                      @click.prevent="deleteUser(user.id)"
                       <i class="fa fa-trash red"></i>
                     </a>
                   </td>
@@ -168,6 +169,25 @@ export default {
                 title: 'Cannot be created'
             });
         });
+    },
+    deleteUser(id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            }
+        })
     }
   }
 };
