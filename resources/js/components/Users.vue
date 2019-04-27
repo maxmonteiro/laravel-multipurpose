@@ -61,12 +61,12 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addNewLabel">Add New</h5>
+            <h5 class="modal-title" id="addNewLabel">{{ !editMode ? 'Add New' : 'Edit User' }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form @submit.prevent="createUser">
+          <form @submit.prevent="!editMode ? createUser() : updateUser()">
             <div class="modal-body">
                 <div class="form-group">
                     <input type="text" name="name" class="form-control" placeholder="Name"
@@ -111,7 +111,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Create</button>
+              <button type="submit" class="btn btn-primary">{{ !editMode ? 'Create' : 'Update' }}</button>
             </div>
           </form>
         </div>
@@ -132,7 +132,8 @@ export default {
           type: '',
           bio: '',
           photo: '',
-      })
+      }),
+      editMode: false
     };
   },
   created() {
@@ -141,10 +142,12 @@ export default {
   },
   methods: {
     newModal() {
+      this.editMode = false;
       this.form.reset();
       $('#addNew').modal('show');
     },
     editModal(user) {
+      this.editMode = true;
       this.form.reset();
       $('#addNew').modal('show');
       this.form.fill(user);
@@ -182,6 +185,9 @@ export default {
                 title: 'Cannot be created'
             });
         });
+    },
+    updateUser() {
+        alert('update');
     },
     deleteUser(id) {
       Swal.fire({
