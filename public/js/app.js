@@ -1989,6 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       users: {},
       form: new Form({
+        id: '',
         name: '',
         email: '',
         password: '',
@@ -2054,10 +2055,26 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateUser: function updateUser() {
-      alert('update');
+      var _this3 = this;
+
+      this.$Progress.start();
+      var id = this.form.id;
+      this.form.put('api/user/' + id).then(function (result) {
+        _this3.$Progress.finish();
+
+        Toast.fire({
+          type: 'success',
+          title: 'Updated in successfully'
+        });
+        $('#addNew').modal('hide');
+
+        _this3.loadUsers();
+      })["catch"](function (err) {
+        _this3.$Progress.fail();
+      });
     },
     deleteUser: function deleteUser(id) {
-      var _this3 = this;
+      var _this4 = this;
 
       Swal.fire({
         title: 'Are you sure?',
@@ -2075,7 +2092,7 @@ __webpack_require__.r(__webpack_exports__);
             // if deleted
             Swal.fire('Deleted!', 'The user has been deleted.', 'success');
 
-            _this3.loadUsers();
+            _this4.loadUsers();
           })["catch"](function (err) {
             Swal.fire('Error', 'Cannot be deleted.', 'error');
           });

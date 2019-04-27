@@ -126,6 +126,7 @@ export default {
     return {
       users: {},
       form: new Form({
+          id: '',
           name: '',
           email: '',
           password: '',
@@ -187,7 +188,20 @@ export default {
         });
     },
     updateUser() {
-        alert('update');
+        this.$Progress.start();
+        var id = this.form.id;
+        this.form.put('api/user/' + id)
+        .then((result) => {
+            this.$Progress.finish();
+            Toast.fire({
+                type: 'success',
+                title: 'Updated in successfully'
+            });
+            $('#addNew').modal('hide');
+            this.loadUsers();
+        }).catch((err) => {
+            this.$Progress.fail();
+        });
     },
     deleteUser(id) {
       Swal.fire({
