@@ -58856,7 +58856,23 @@ var render = function() {
                         _vm._v(_vm._s(_vm._f("myDate")(user.created_at)))
                       ]),
                       _vm._v(" "),
-                      _vm._m(2, true)
+                      _c("td", [
+                        _vm._m(2, true),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.deleteUser(user.id)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fa fa-trash red" })]
+                        )
+                      ])
                     ])
                   })
                 ],
@@ -59184,17 +59200,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "" } }, [
-        _c("i", { staticClass: "fa fa-edit blue" })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "" } }, [
-        _vm._v(
-          '\n                    @click.prevent="deleteUser(user.id)"\n                    '
-        ),
-        _c("i", { staticClass: "fa fa-trash red" })
-      ])
+    return _c("a", { attrs: { href: "" } }, [
+      _c("i", { staticClass: "fa fa-edit blue" })
     ])
   },
   function() {
@@ -74529,8 +74536,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/laravel-multipurpose/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/laravel-multipurpose/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! I:\www\laravel\laravel-multipurpose\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! I:\www\laravel\laravel-multipurpose\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
