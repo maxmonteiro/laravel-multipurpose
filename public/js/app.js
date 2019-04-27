@@ -2038,6 +2038,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteUser: function deleteUser(id) {
+      var _this3 = this;
+
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -2047,8 +2049,17 @@ __webpack_require__.r(__webpack_exports__);
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
       }).then(function (result) {
+        // if confirm delete do
         if (result.value) {
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          // Send request to the server
+          axios["delete"]('api/user/' + id).then(function (result) {
+            // if deleted
+            Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+
+            _this3.loadUsers();
+          })["catch"](function (err) {
+            Swal.fire('Error', 'Cannot be deleted.', 'error');
+          });
         }
       });
     }
