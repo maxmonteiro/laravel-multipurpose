@@ -1980,6 +1980,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -58873,7 +58875,8 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            attrs: { href: "" },
+                            staticClass: "btn btn-danger",
+                            attrs: { href: "", role: "button" },
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
@@ -58881,7 +58884,7 @@ var render = function() {
                               }
                             }
                           },
-                          [_c("i", { staticClass: "fa fa-trash red" })]
+                          [_c("i", { staticClass: "fa fa-times white" })]
                         )
                       ])
                     ])
@@ -59211,9 +59214,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "" } }, [
-      _c("i", { staticClass: "fa fa-edit blue" })
-    ])
+    return _c(
+      "a",
+      { staticClass: "btn btn-primary", attrs: { href: "", role: "button" } },
+      [
+        _c("i", { staticClass: "fa fa-edit" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Edit")])
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -74547,8 +74556,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! I:\www\laravel\laravel-multipurpose\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! I:\www\laravel\laravel-multipurpose\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/laravel-multipurpose/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/laravel-multipurpose/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

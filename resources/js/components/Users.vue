@@ -30,12 +30,14 @@
                   <td>{{ user.type | upText }}</td>
                   <td>{{ user.created_at | myDate }}</td>
                   <td>
-                    <a href="">
-                      <i class="fa fa-edit blue"></i>
+                    <a href="" class="btn btn-primary" role="button">
+                      <i class="fa fa-edit"></i>
+                      <span>Edit</span>
                     </a>
-                    <a href=""
+                    <a href="" class="btn btn-danger" role="button"
                     @click.prevent="deleteUser(user.id)">
-                      <i class="fa fa-trash red"></i>
+                      <!-- <i class="fa fa-trash red"></i> -->
+                      <i class="fa fa-times white"></i>
                     </a>
                   </td>
                 </tr>
