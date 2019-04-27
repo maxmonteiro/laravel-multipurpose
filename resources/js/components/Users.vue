@@ -6,7 +6,8 @@
           <div class="card-header">
             <h3 class="card-title">Users</h3>
             <div class="card-tools">
-              <button class="btn btn-success" data-toggle="modal" data-target="#addNew">
+              <button class="btn btn-success"
+              @click.prevent="newModal">
                 <i class="fa fa-user-plus pr-2"></i>
                 <span>New User</span>
               </button>
@@ -138,6 +139,10 @@ export default {
     this.loadUsers();
   },
   methods: {
+    newModal() {
+      this.form.reset();
+      $('#addNew').modal('show');
+    },
     loadUsers() {
         axios.get('api/user')
         .then(({ data }) => {
