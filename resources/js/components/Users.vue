@@ -31,7 +31,8 @@
                   <td>{{ user.type | upText }}</td>
                   <td>{{ user.created_at | myDate }}</td>
                   <td>
-                    <a href="" class="btn btn-primary" role="button">
+                    <a href="" class="btn btn-primary" role="button"
+                    @click.prevent="editModal(user)">
                       <i class="fa fa-edit"></i>
                       <span>Edit</span>
                     </a>
@@ -142,6 +143,11 @@ export default {
     newModal() {
       this.form.reset();
       $('#addNew').modal('show');
+    },
+    editModal(user) {
+      this.form.reset();
+      $('#addNew').modal('show');
+      this.form.fill(user);
     },
     loadUsers() {
         axios.get('api/user')
