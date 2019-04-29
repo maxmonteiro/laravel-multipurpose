@@ -39,6 +39,7 @@ window.Toast = Toast
 
 const routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue').default },
+    { path: '/developer', component: require('./components/Developer.vue').default },
     { path: '/profile', component: require('./components/Profile.vue').default },
     { path: '/users', component: require('./components/Users.vue').default },
 ]
@@ -70,6 +71,11 @@ Vue.filter('myDate', (date) => {
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+/* Passport */
+Vue.component('passport-clients', require('./components/passport/Clients.vue').default);
+Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue').default);
+Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
