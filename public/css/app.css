@@ -10716,3 +10716,7 @@ a.text-dark:focus {
   vertical-align: middle !important;
 }
 
+.nav-tabs .nav-link.active {
+  border-bottom: 2px solid blue;
+}
+
