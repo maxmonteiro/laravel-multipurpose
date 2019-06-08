@@ -1931,6 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1958,6 +1959,24 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (err) {
       console.err(err);
     });
+  },
+  methods: {
+    updateProfile: function updateProfile(e) {
+      var _this2 = this;
+
+      //console.log('upload photo', e);
+      // setando arquivo carregado
+      var file = e.target.files[0]; // instanciando novo FileReader - leitor de arquivos
+
+      var reader = new FileReader(); // setando a foto no formulário
+
+      reader.onloadend = function (file) {
+        _this2.form.photo = reader.result;
+      }; // lendo arquivo
+
+
+      reader.readAsDataURL(file);
+    }
   }
 });
 
@@ -60698,7 +60717,23 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(3),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-6 control-label",
+                            attrs: { for: "inputPhoto" }
+                          },
+                          [_vm._v("Profile Photo")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            attrs: { type: "file", name: "", id: "" },
+                            on: { change: _vm.updateProfile }
+                          })
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c(
@@ -60742,7 +60777,7 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(4)
+                      _vm._m(3)
                     ])
                   ]
                 )
@@ -60860,22 +60895,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "tab-pane", attrs: { id: "activity" } }, [
       _c("h4", [_vm._v("Activity")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "label",
-        { staticClass: "col-sm-6 control-label", attrs: { for: "inputPhoto" } },
-        [_vm._v("Profile Photo")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
-        _c("input", { attrs: { type: "file", name: "", id: "" } })
-      ])
     ])
   },
   function() {

@@ -88,7 +88,8 @@
                             <div class="form-group">
                                 <label for="inputPhoto" class="col-sm-6 control-label">Profile Photo</label>
                                 <div class="col-sm-10">
-                                  <input type="file" name="" id="">
+                                  <input type="file" name="" id=""
+                                  @change="updateProfile">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -140,6 +141,21 @@ export default {
         }).catch((err) => {
             console.err(err);
         });
+    },
+    methods: {
+        updateProfile(e) {
+            //console.log('upload photo', e);
+            // setando arquivo carregado
+            let file = e.target.files[0];
+            // instanciando novo FileReader - leitor de arquivos
+            let reader = new FileReader();
+            // setando a foto no formulário
+            reader.onloadend = (file) => {
+                this.form.photo = reader.result;
+            }
+            // lendo arquivo
+            reader.readAsDataURL(file);
+        }
     }
 };
 </script>
