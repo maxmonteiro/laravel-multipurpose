@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -75,8 +76,13 @@ class UserController extends Controller
      */
     public function updateProfile(Request $request)
     {
-        return $request->photo;
-        //return ['message' => 'Success'];
+        // se possui foto, realiza upload
+        if ($request->photo) {
+            // setando nome do arquivo
+            $name = time().'.'.explode('/', explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
+            // gravando imagem no banco
+            Image::make($request->photo)->save(public_path(). '/img/profile/' . $name);
+        }
     }
 
     /**
