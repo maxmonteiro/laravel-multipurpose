@@ -1932,6 +1932,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1976,6 +1979,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
       reader.readAsDataURL(file);
+    },
+    updateInfo: function updateInfo() {
+      this.form.put('api/profile/').then(function (_ref2) {
+        var data = _ref2.data;
+      })["catch"](function (err) {
+        console.err(err);
+      });
     }
   }
 });
@@ -60777,7 +60787,33 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(3)
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-offset-2 col-sm-10" },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-success",
+                                attrs: { type: "submit" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.updateInfo($event)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-sync-alt pr-2" }),
+                                _vm._v(
+                                  "Update\n                                  "
+                                )
+                              ]
+                            )
+                          ]
+                        )
+                      ])
                     ])
                   ]
                 )
@@ -60895,20 +60931,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "tab-pane", attrs: { id: "activity" } }, [
       _c("h4", [_vm._v("Activity")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("div", { staticClass: "col-sm-offset-2 col-sm-10" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-success", attrs: { type: "submit" } },
-          [_c("i", { staticClass: "fa fa-sync-alt pr-2" }), _vm._v("Update")]
-        )
-      ])
     ])
   }
 ]

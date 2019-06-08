@@ -102,7 +102,10 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success"><i class="fa fa-sync-alt pr-2"></i>Update</button>
+                                    <button type="submit" class="btn btn-success"
+                                    @click.prevent="updateInfo">
+                                        <i class="fa fa-sync-alt pr-2"></i>Update
+                                    </button>
                                 </div>
                             </div>
                             </form>
@@ -155,6 +158,14 @@ export default {
             }
             // lendo arquivo
             reader.readAsDataURL(file);
+        },
+        updateInfo() {
+            this.form.put('api/profile/')
+            .then(({data}) => {
+
+            }).catch((err) => {
+                console.err(err);
+            });
         }
     }
 };

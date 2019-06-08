@@ -68,6 +68,18 @@ class UserController extends Controller
     }
 
     /**
+     * Update the user profile
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function updateProfile(Request $request)
+    {
+        return $request->photo;
+        //return ['message' => 'Success'];
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
