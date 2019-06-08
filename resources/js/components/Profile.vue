@@ -63,23 +63,30 @@
                             <div class="form-group">
                                 <label for="inputName" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                  <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                  <input type="email" class="form-control" id="inputName" placeholder="Name"
+                                  v-model="form.name"
+                                  >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-10">
-                                  <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                  <input type="email" class="form-control" id="inputEmail" placeholder="Email"
+                                  v-model="form.email"
+                                  >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
                                 <div class="col-sm-10">
-                                  <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                  <textarea class="form-control" id="inputExperience" placeholder="Experience"
+                                  v-model="form.experience"
+                                  >
+                                  </textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputPhoto" class="col-sm-2 control-label">Profile Photo</label>
+                                <label for="inputPhoto" class="col-sm-6 control-label">Profile Photo</label>
                                 <div class="col-sm-10">
                                   <input type="file" name="" id="">
                                 </div>
@@ -87,7 +94,9 @@
                             <div class="form-group">
                                 <label for="inputPassword" class="col-sm-6 control-label">Password (leave empty if not changing)</label>
                                 <div class="col-sm-10">
-                                  <textarea class="form-control" id="inputExperience" placeholder="Password"></textarea>
+                                  <input class="form-control" id="inputExperience" placeholder="Password"
+                                  v-model="form.password"
+                                  >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -108,8 +117,29 @@
 
 <script>
 export default {
-  mounted() {
-    console.log("Component mounted.");
-  }
+    data() {
+        return {
+            form: new Form({
+                id: '',
+                name: '',
+                email: '',
+                password: '',
+                type: '',
+                bio: '',
+                photo: '',
+            }),
+        }
+    },
+    mounted() {
+        console.log("Component mounted.");
+    },
+    created() {
+        axios.get('api/profile')
+        .then(({data}) => {
+            this.form.fill(data);
+        }).catch((err) => {
+            console.err(err);
+        });
+    }
 };
 </script>

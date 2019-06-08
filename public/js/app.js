@@ -1922,9 +1922,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: new Form({
+        id: '',
+        name: '',
+        email: '',
+        password: '',
+        type: '',
+        bio: '',
+        photo: ''
+      })
+    };
+  },
   mounted: function mounted() {
     console.log("Component mounted.");
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('api/profile').then(function (_ref) {
+      var data = _ref.data;
+
+      _this.form.fill(data);
+    })["catch"](function (err) {
+      console.err(err);
+    });
   }
 });
 
@@ -60527,256 +60560,335 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12 mt-3" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "nav-tabs" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "tab-content" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "tab-pane", attrs: { id: "settings" } },
+                  [
+                    _c("form", { staticClass: "form-horizontal" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 control-label",
+                            attrs: { for: "inputName" }
+                          },
+                          [_vm._v("Name")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.name,
+                                expression: "form.name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "email",
+                              id: "inputName",
+                              placeholder: "Name"
+                            },
+                            domProps: { value: _vm.form.name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "name", $event.target.value)
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 control-label",
+                            attrs: { for: "inputEmail" }
+                          },
+                          [_vm._v("Email")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.email,
+                                expression: "form.email"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "email",
+                              id: "inputEmail",
+                              placeholder: "Email"
+                            },
+                            domProps: { value: _vm.form.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "email", $event.target.value)
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-2 control-label",
+                            attrs: { for: "inputExperience" }
+                          },
+                          [_vm._v("Experience")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.experience,
+                                expression: "form.experience"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "inputExperience",
+                              placeholder: "Experience"
+                            },
+                            domProps: { value: _vm.form.experience },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "experience",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "col-sm-6 control-label",
+                            attrs: { for: "inputPassword" }
+                          },
+                          [_vm._v("Password (leave empty if not changing)")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.password,
+                                expression: "form.password"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "inputExperience",
+                              placeholder: "Password"
+                            },
+                            domProps: { value: _vm.form.password },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "password",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(4)
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-12 mt-3" }, [
-          _c("div", { staticClass: "card card-widget widget-user" }, [
-            _c("div", { staticClass: "widget-user-header bg-black" }, [
-              _c("h3", { staticClass: "widget-user-username" }, [
-                _vm._v("Elizabeth Pierce")
-              ]),
-              _vm._v(" "),
-              _c("h5", { staticClass: "widget-user-desc" }, [
-                _vm._v("Web Designer")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "widget-user-image" }, [
-              _c("img", {
-                staticClass: "img-circle",
-                attrs: { src: "/img/user3-128x128.jpg", alt: "User Avatar" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body mt-2" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-sm-4 border-right" }, [
-                  _c("div", { staticClass: "description-block" }, [
-                    _c("h5", { staticClass: "description-header" }, [
-                      _vm._v("3,200")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "description-text" }, [
-                      _vm._v("SALES")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4 border-right" }, [
-                  _c("div", { staticClass: "description-block" }, [
-                    _c("h5", { staticClass: "description-header" }, [
-                      _vm._v("13,000")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "description-text" }, [
-                      _vm._v("FOLLOWERS")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-sm-4" }, [
-                  _c("div", { staticClass: "description-block" }, [
-                    _c("h5", { staticClass: "description-header" }, [
-                      _vm._v("35")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "description-text" }, [
-                      _vm._v("PRODUCTS")
-                    ])
-                  ])
-                ])
-              ])
-            ])
+    return _c("div", { staticClass: "col-md-12 mt-3" }, [
+      _c("div", { staticClass: "card card-widget widget-user" }, [
+        _c("div", { staticClass: "widget-user-header bg-black" }, [
+          _c("h3", { staticClass: "widget-user-username" }, [
+            _vm._v("Elizabeth Pierce")
+          ]),
+          _vm._v(" "),
+          _c("h5", { staticClass: "widget-user-desc" }, [
+            _vm._v("Web Designer")
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-12 mt-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "nav-tabs" }, [
-              _c("ul", { staticClass: "nav nav-tabs" }, [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: {
-                        href: "#activity",
-                        "data-toggle": "tab",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Activity")]
-                  )
+        _c("div", { staticClass: "widget-user-image" }, [
+          _c("img", {
+            staticClass: "img-circle",
+            attrs: { src: "/img/user3-128x128.jpg", alt: "User Avatar" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body mt-2" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-4 border-right" }, [
+              _c("div", { staticClass: "description-block" }, [
+                _c("h5", { staticClass: "description-header" }, [
+                  _vm._v("3,200")
                 ]),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: {
-                        href: "#settings",
-                        "data-toggle": "tab",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_vm._v("Settings")]
-                  )
+                _c("span", { staticClass: "description-text" }, [
+                  _vm._v("SALES")
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "tab-content" }, [
-                  _c(
-                    "div",
-                    { staticClass: "tab-pane", attrs: { id: "activity" } },
-                    [_c("h4", [_vm._v("Activity")])]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "tab-pane", attrs: { id: "settings" } },
-                    [
-                      _c("form", { staticClass: "form-horizontal" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-2 control-label",
-                              attrs: { for: "inputName" }
-                            },
-                            [_vm._v("Name")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-10" }, [
-                            _c("input", {
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "email",
-                                id: "inputName",
-                                placeholder: "Name"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-2 control-label",
-                              attrs: { for: "inputEmail" }
-                            },
-                            [_vm._v("Email")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-10" }, [
-                            _c("input", {
-                              staticClass: "form-control",
-                              attrs: {
-                                type: "email",
-                                id: "inputEmail",
-                                placeholder: "Email"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-2 control-label",
-                              attrs: { for: "inputExperience" }
-                            },
-                            [_vm._v("Experience")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-10" }, [
-                            _c("textarea", {
-                              staticClass: "form-control",
-                              attrs: {
-                                id: "inputExperience",
-                                placeholder: "Experience"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-2 control-label",
-                              attrs: { for: "inputPhoto" }
-                            },
-                            [_vm._v("Profile Photo")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-10" }, [
-                            _c("input", {
-                              attrs: { type: "file", name: "", id: "" }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "col-sm-6 control-label",
-                              attrs: { for: "inputPassword" }
-                            },
-                            [_vm._v("Password (leave empty if not changing)")]
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-sm-10" }, [
-                            _c("textarea", {
-                              staticClass: "form-control",
-                              attrs: {
-                                id: "inputExperience",
-                                placeholder: "Password"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "div",
-                            { staticClass: "col-sm-offset-2 col-sm-10" },
-                            [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-success",
-                                  attrs: { type: "submit" }
-                                },
-                                [
-                                  _c("i", {
-                                    staticClass: "fa fa-sync-alt pr-2"
-                                  }),
-                                  _vm._v("Update")
-                                ]
-                              )
-                            ]
-                          )
-                        ])
-                      ])
-                    ]
-                  )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4 border-right" }, [
+              _c("div", { staticClass: "description-block" }, [
+                _c("h5", { staticClass: "description-header" }, [
+                  _vm._v("13,000")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "description-text" }, [
+                  _vm._v("FOLLOWERS")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("div", { staticClass: "description-block" }, [
+                _c("h5", { staticClass: "description-header" }, [_vm._v("35")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "description-text" }, [
+                  _vm._v("PRODUCTS")
                 ])
               ])
             ])
           ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "nav nav-tabs" }, [
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link",
+            attrs: {
+              href: "#activity",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [_vm._v("Activity")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "nav-item" }, [
+        _c(
+          "a",
+          {
+            staticClass: "nav-link",
+            attrs: {
+              href: "#settings",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [_vm._v("Settings")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab-pane", attrs: { id: "activity" } }, [
+      _c("h4", [_vm._v("Activity")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "label",
+        { staticClass: "col-sm-6 control-label", attrs: { for: "inputPhoto" } },
+        [_vm._v("Profile Photo")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c("input", { attrs: { type: "file", name: "", id: "" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "col-sm-offset-2 col-sm-10" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-success", attrs: { type: "submit" } },
+          [_c("i", { staticClass: "fa fa-sync-alt pr-2" }), _vm._v("Update")]
+        )
       ])
     ])
   }
