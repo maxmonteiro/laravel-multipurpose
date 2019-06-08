@@ -1960,6 +1960,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log("Component mounted.");
@@ -60686,16 +60692,59 @@ var staticRenderFns = [
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-2 control-label",
+                              attrs: { for: "inputPhoto" }
+                            },
+                            [_vm._v("Profile Photo")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c("input", {
+                              attrs: { type: "file", name: "", id: "" }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "col-sm-6 control-label",
+                              attrs: { for: "inputPassword" }
+                            },
+                            [_vm._v("Password (leave empty if not changing)")]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-sm-10" }, [
+                            _c("textarea", {
+                              staticClass: "form-control",
+                              attrs: {
+                                id: "inputExperience",
+                                placeholder: "Password"
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
                             "div",
                             { staticClass: "col-sm-offset-2 col-sm-10" },
                             [
                               _c(
                                 "button",
                                 {
-                                  staticClass: "btn btn-primary",
+                                  staticClass: "btn btn-success",
                                   attrs: { type: "submit" }
                                 },
-                                [_vm._v("Submit")]
+                                [
+                                  _c("i", {
+                                    staticClass: "fa fa-sync-alt pr-2"
+                                  }),
+                                  _vm._v("Update")
+                                ]
                               )
                             ]
                           )
