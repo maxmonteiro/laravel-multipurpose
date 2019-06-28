@@ -152,19 +152,30 @@ export default {
             let file = e.target.files[0];
             // instanciando novo FileReader - leitor de arquivos
             let reader = new FileReader();
-            // setando a foto no formulário
-            reader.onloadend = (file) => {
-                this.form.photo = reader.result;
+            // checando o tamanho do arquivo
+            if (file['size'] < 2111775) { // 2111775 = 2MB
+                // setando a foto no formulário
+                reader.onloadend = (file) => {
+                    this.form.photo = reader.result;
+                }
+                // lendo arquivo
+                reader.readAsDataURL(file);
+            } else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'You are uploading a large file'
+                })
             }
-            // lendo arquivo
-            reader.readAsDataURL(file);
+
         },
         updateInfo() {
+            this.$Progress.start();
             this.form.put('api/profile/')
             .then(({data}) => {
-
+                this.$Progress.finish();
             }).catch((err) => {
-                console.err(err);
+                this.$Progress.fail();
             });
         }
     }
