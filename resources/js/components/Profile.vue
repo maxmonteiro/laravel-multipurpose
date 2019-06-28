@@ -64,16 +64,20 @@
                                 <label for="inputName" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
                                   <input type="email" class="form-control" id="inputName" placeholder="Name"
+                                  :class="{ 'is-invalid': form.errors.has('name') }"
                                   v-model="form.name"
                                   >
+                                  <has-error :form="form" field="name"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-10">
                                   <input type="email" class="form-control" id="inputEmail" placeholder="Email"
+                                  :class="{ 'is-invalid': form.errors.has('email') }"
                                   v-model="form.email"
                                   >
+                                  <has-error :form="form" field="email"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -96,8 +100,10 @@
                                 <label for="inputPassword" class="col-sm-6 control-label">Password (leave empty if not changing)</label>
                                 <div class="col-sm-10">
                                   <input class="form-control" id="inputExperience" placeholder="Password"
+                                  :class="{ 'is-invalid': form.errors.has('password') }"
                                   v-model="form.password"
                                   >
+                                  <has-error :form="form" field="password"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">

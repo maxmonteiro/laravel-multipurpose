@@ -85,7 +85,6 @@ class UserController extends Controller
             'name'      => 'required|string|max:191',
             'email'     => 'required|string|max:191|email|unique:users,email,'.$user->id,
             'password'  => 'sometimes|required|min:6',
-            'type'      => 'required'
         ]);
 
         // setando foto do usuário
