@@ -99,6 +99,12 @@ class UserController extends Controller
             // atribui nome da foto enviada no objeto request
             $request->merge(['photo' => $name]);
         }
+
+        // verificando se o campo senha não está vazio
+        if(!empty($request->password)) {
+            $request->merge(['password' => Hash::make($request['password'])]);
+        }
+
         // atualiza usuário
         $user->update($request->all());
         return ['message' => "Success"];
