@@ -76,13 +76,32 @@ class UserController extends Controller
      */
     public function updateProfile(Request $request)
     {
-        // se possui foto, realiza upload
-        if ($request->photo) {
+        // Verificando foto do perfil
+        // pegando dados do usuário
+        $user = auth('api')->user();
+
+        // validando request
+        $this->validate($request, [
+            'name'      => 'required|string|max:191',
+            'email'     => 'required|string|max:191|email|unique:users,email,'.$user->id,
+            'password'  => 'sometimes|required|min:6',
+            'type'      => 'required'
+        ]);
+
+        // setando foto do usuário
+        $currentPhoto = $user->photo;
+        // se foto atual é diferente da anterior, realiza upload
+        if ($request->photo != $currentPhoto) {
             // setando nome do arquivo
             $name = time().'.'.explode('/', explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
             // gravando imagem no banco
             Image::make($request->photo)->save(public_path(). '/img/profile/' . $name);
+            // atribui nome da foto enviada no objeto request
+            $request->merge(['photo' => $name]);
         }
+        // atualiza usuário
+        $user->update($request->all());
+        return ['message' => "Success"];
     }
 
     /**
