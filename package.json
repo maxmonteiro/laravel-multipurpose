@@ -18,15 +18,15 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.21.0",
+        "sass": "^1.22.1",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "admin-lte": "^2.4.11",
+        "admin-lte": "^2.4.12",
         "moment": "^2.24.0",
-        "sweetalert2": "^8.11.7",
+        "sweetalert2": "^8.13.0",
         "vform": "^1.0.1",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.0.6"
