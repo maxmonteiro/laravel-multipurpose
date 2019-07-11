@@ -97,6 +97,13 @@ class UserController extends Controller
             Image::make($request->photo)->save(public_path(). '/img/profile/' . $name);
             // atribui nome da foto enviada no objeto request
             $request->merge(['photo' => $name]);
+
+            // buscando foto a ser substituida
+            $userPhoto = public_path('img/profile/').$currentPhoto;
+            // removendo foto a ser substituída
+            if(file_exists($userPhoto)) {
+                @unlink($userPhoto);
+            }
         }
 
         // verificando se o campo senha não está vazio
