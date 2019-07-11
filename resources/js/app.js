@@ -8,6 +8,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+// ACL
+import Gate from './gate';
+Vue.prototype.$gate = new Gate(window.user);
 
 import { Form, HasError, AlertError } from 'vform'
 window.Form = Form
