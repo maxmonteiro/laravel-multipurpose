@@ -9,7 +9,7 @@
             <h5 class="widget-user-desc">Web Designer</h5>
           </div>
           <div class="widget-user-image">
-            <img class="img-circle" src="/img/user3-128x128.jpg" alt="User Avatar">
+            <img class="img-circle" :src="getPhoto()" alt="User Avatar">
           </div>
           <div class="card-body mt-2">
             <div class="row">
@@ -138,6 +138,7 @@ export default {
                 bio: '',
                 photo: '',
             }),
+            photo: ''
         }
     },
     mounted() {
@@ -147,11 +148,15 @@ export default {
         axios.get('api/profile')
         .then(({data}) => {
             this.form.fill(data);
+            this.photo = this.form.photo;
         }).catch((err) => {
             console.err(err);
         });
     },
     methods: {
+        getPhoto() {
+            return '/img/profile/' + this.photo;
+        },
         updateProfile(e) {
             //console.log('upload photo', e);
             // setando arquivo carregado
@@ -179,6 +184,7 @@ export default {
             this.$Progress.start();
             this.form.put('api/profile/')
             .then(({data}) => {
+                this.photo = data.data.photo;
                 this.$Progress.finish();
             }).catch((err) => {
                 this.$Progress.fail();
