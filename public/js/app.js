@@ -2261,7 +2261,8 @@ __webpack_require__.r(__webpack_exports__);
 
             _this4.loadUsers();
           })["catch"](function (err) {
-            Swal.fire('Error', 'Cannot be deleted.', 'error');
+            console.log(err.response.data.message);
+            Swal.fire('Error', 'Cannot be deleted. ' + err.response.data.message, 'error');
           });
         }
       });

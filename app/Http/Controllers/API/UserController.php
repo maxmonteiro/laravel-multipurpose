@@ -158,6 +158,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        // ACl - somente admin pode excluir
+        $this->authorize('isAdmin');
+
         $user = User::findOrFail($id);
         $user->delete();
 

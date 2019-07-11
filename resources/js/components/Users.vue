@@ -227,11 +227,12 @@ export default {
             this.loadUsers();
           })
           .catch((err) => {
-          Swal.fire(
-            'Error',
-            'Cannot be deleted.',
-            'error'
-          )
+            console.log(err.response.data.message);
+            Swal.fire(
+                'Error',
+                'Cannot be deleted. ' + err.response.data.message,
+                'error'
+            )
           });
         }
       });
