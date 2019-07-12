@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="$gate.isAdmin()" class="row mt-5">
+    <div v-if="$gate.isAdminOrSuperAdmin()" class="row mt-5">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div v-if="!$gate.isAdmin()">
+    <div v-if="!$gate.isAdminOrSuperAdmin()">
       <not-found></not-found>
     </div>
 
@@ -159,7 +159,7 @@ export default {
       this.form.fill(user);
     },
     loadUsers() {
-        if (this.$gate.isAdmin()) {
+        if (this.$gate.isAdminOrSuperAdmin()) {
             axios.get('api/user')
             .then(({ data }) => {
                 this.users = data.data;

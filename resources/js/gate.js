@@ -18,4 +18,10 @@ export default class Gate {
     isOrganization() {
         return this.user.type === 'organization';
     };
+
+    isAdminOrSuperAdmin() {
+        if(this.user.type === 'admin' || this.user.type === 'superadmin') {
+            return true;
+        }
+    };
 }

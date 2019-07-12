@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -27,11 +28,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        $this->authorize('isAdmin');
+        //$this->authorize('isAdmin');
+        if (Gate::allows('isAdmin') || Gate::allows('isSuperAdmin')) {
+            $users = User::latest()->paginate(10);
 
-        $users = User::latest()->paginate(10);
+            return $users;
+        }
 
-        return $users;
+
     }
 
     /**
